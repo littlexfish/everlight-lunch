@@ -44,7 +44,8 @@ export default function AddFoodPage() {
     const [loading, setLoading] = useState(false);
     function onSubmit() {
         setLoading(true);
-        addFood(user, date, foodType, food, confirmed).then(({data, error}) => {
+        console.log(date);
+        addFood(user, date.toLocaleDateString(), foodType, food, confirmed).then(({data, error}) => {
             if (error) {
                 setError(error);
                 setLoading(false);
@@ -61,7 +62,7 @@ export default function AddFoodPage() {
     }
     return (
         <RequireSession onGetUser={setUser}>
-            <div className="h-full w-full items-center justify-center p-3">
+            <div className="h-full w-full items-center justify-center p-5">
                 <Card>
                     <CardHeader>
                         <CardTitle>新增食物</CardTitle>

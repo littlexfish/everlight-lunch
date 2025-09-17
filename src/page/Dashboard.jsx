@@ -105,7 +105,7 @@ function FoodTable({ data = [], reload = () => {} }) {
                 return (<div>{row.getValue('confirm') ?
                     "Confirmed" :
                     <Button variant="secondary" onClick={() => {
-                        confirmFood(row.getValue('id')).then(({ error}) => {
+                        confirmFood(row.original.id).then(({ error}) => {
                             if (!error) reload();
                         });
                     }}>
